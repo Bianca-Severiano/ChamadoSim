@@ -4,8 +4,6 @@ import javax.swing.JOptionPane;
 import model.Cliente;
 import model.Fila;
 
-
-
 public class ControllerChamadoSim {
 
 	static int cont;
@@ -28,14 +26,18 @@ public class ControllerChamadoSim {
 		}
 	}
 
-	public static void IncluirnaFila(Fila fila, Fila filaPrioritarios, int r, int n) {
-		Cliente cliente = new Cliente();
+	public void IncluirnaFila(Fila fila, Fila filaPrioritarios, int r, int n) {
+		
 		if (r == 1) {
+			System.out.print(fila.size());
+			Cliente cliente = new Cliente();
 			cliente.nome = JOptionPane.showInputDialog("Nome:");
 			cliente.numero = n + 1;
 			fila.insert(cliente);
+			System.out.println(fila.size());
 
 		} else if (r == 2) {
+			Cliente cliente = new Cliente();
 			cliente.nome = JOptionPane.showInputDialog("Nome:");
 			cliente.numero = n + 1;
 			filaPrioritarios.insert(cliente);
@@ -61,16 +63,21 @@ public class ControllerChamadoSim {
 				}
 			}
 
+		} else{
+			ChamarCliente(fila, filaPrioritarios, r, n);
+			cont = 0;
 		}
 	}
 
 	public static void ChamarCliente(Fila fila, Fila filaPrioritarios, int r, int n) throws Exception {
 		Cliente cliente;
+		System.out.println(fila.size());
 		try {
 			cliente = (Cliente) fila.remove();
 			JOptionPane.showMessageDialog(null, "Cliente: " + cliente.nome + " \n Senha: " + cliente.numero);
 		} catch (Exception b) {
 			System.err.println("Fila Vazia");
+			
 		} finally {
 			cont = 0;
 		}

@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="lib/FilaGenericaa.jar"/>
+	<classpathentry kind="lib" path="lib/FilaD.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
